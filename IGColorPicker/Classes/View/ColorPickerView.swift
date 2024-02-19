@@ -168,7 +168,7 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
             cell.layer.cornerRadius = cell.bounds.width / 2
         } else {
             cell.layer.cornerRadius = 4.0
-            cell.layer.borderWidth = 2.0
+            cell.layer.borderWidth = 8.0
             cell.layer.borderColor = UIColor.white.cgColor
         }
         
