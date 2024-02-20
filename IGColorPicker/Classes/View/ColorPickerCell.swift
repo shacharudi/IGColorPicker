@@ -19,6 +19,7 @@ class ColorPickerCell: UICollectionViewCell {
     static let cellIdentifier = String(describing: ColorPickerCell.self)
     /// The checkbox use to show the tip on the cell
     var checkbox = M13Checkbox()
+    let innerView = UIView()
     
     //MARK: - Initializer
     
@@ -47,13 +48,21 @@ class ColorPickerCell: UICollectionViewCell {
         checkbox.setCheckState(.unchecked, animated: false)
         
         self.addSubview(checkbox)
-        
+        addSubview(innerView)
+
         // Setup constraints to checkbox
         checkbox.translatesAutoresizingMaskIntoConstraints = false
         self.addConstraint(NSLayoutConstraint(item: checkbox, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: checkbox, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: checkbox, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: checkbox, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0))
+        
+        let margin = ColorPickerView.borderWidth
+        checkbox.translatesAutoresizingMaskIntoConstraints = false
+        self.addConstraint(NSLayoutConstraint(item: innerView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: margin))
+        self.addConstraint(NSLayoutConstraint(item: innerView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: margin))
+        self.addConstraint(NSLayoutConstraint(item: innerView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: margin))
+        self.addConstraint(NSLayoutConstraint(item: innerView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: margin))
     }
     
 }

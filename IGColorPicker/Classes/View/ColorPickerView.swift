@@ -152,7 +152,10 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
         
     }
     
-    
+    static let radius: CGFloat = 6.0
+    static let borderWidth: CGFloat = 8.0
+    static let borderColor = UIColor.white
+
     // MARK: - UICollectionViewDataSource
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -167,9 +170,9 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
         if style == .circle {
             cell.layer.cornerRadius = cell.bounds.width / 2
         } else {
-            cell.layer.cornerRadius = 4.0
-            cell.layer.borderWidth = 8.0
-            cell.layer.borderColor = UIColor.white.cgColor
+            cell.layer.cornerRadius = ColorPickerView.radius
+            cell.backgroundColor = ColorPickerView.borderColor
+            cell.innerView.layer.cornerRadius = ColorPickerView.radius
         }
         
         return cell
