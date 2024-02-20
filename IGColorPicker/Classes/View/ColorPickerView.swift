@@ -165,7 +165,7 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorPickerCell.cellIdentifier, for: indexPath) as! ColorPickerCell
         
-        cell.backgroundColor = colors[indexPath.item]
+        cell.innerView.backgroundColor = colors[indexPath.item]
         
         if style == .circle {
             cell.layer.cornerRadius = cell.bounds.width / 2
