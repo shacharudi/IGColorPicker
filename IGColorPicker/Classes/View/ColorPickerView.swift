@@ -170,8 +170,8 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
         if style == .circle {
             cell.layer.cornerRadius = cell.bounds.width / 2
         } else {
+            cell.backgroundColor = .white
             cell.layer.cornerRadius = ColorPickerView.radius
-            cell.backgroundColor = ColorPickerView.borderColor
             cell.innerView.layer.cornerRadius = ColorPickerView.radius
         }
         

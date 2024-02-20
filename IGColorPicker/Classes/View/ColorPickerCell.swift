@@ -47,8 +47,17 @@ class ColorPickerCell: UICollectionViewCell {
         checkbox.hideBox = true
         checkbox.setCheckState(.unchecked, animated: false)
         
+        innerView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(innerView)
+
+        NSLayoutConstraint.activate([
+            innerView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            innerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            innerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            innerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+        ])
+        
         self.addSubview(checkbox)
-        addSubview(innerView)
 
         // Setup constraints to checkbox
         checkbox.translatesAutoresizingMaskIntoConstraints = false
@@ -56,13 +65,6 @@ class ColorPickerCell: UICollectionViewCell {
         self.addConstraint(NSLayoutConstraint(item: checkbox, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: checkbox, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: checkbox, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0))
-        
-        let margin = ColorPickerView.borderWidth
-        checkbox.translatesAutoresizingMaskIntoConstraints = false
-        self.addConstraint(NSLayoutConstraint(item: innerView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: margin))
-        self.addConstraint(NSLayoutConstraint(item: innerView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: margin))
-        self.addConstraint(NSLayoutConstraint(item: innerView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: margin))
-        self.addConstraint(NSLayoutConstraint(item: innerView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: margin))
     }
     
 }
