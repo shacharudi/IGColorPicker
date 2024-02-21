@@ -153,7 +153,7 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
     }
     
     static let radius: CGFloat = 6.0
-    static let borderWidth: CGFloat = 8.0
+    static let borderWidth: CGFloat = 6.0
     static let borderColor = UIColor.white
 
     // MARK: - UICollectionViewDataSource
