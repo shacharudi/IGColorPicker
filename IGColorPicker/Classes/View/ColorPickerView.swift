@@ -75,12 +75,7 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
     open var style: ColorPickerViewStyle = .circle
     /// Style applied when a color is selected
     open var selectionStyle: ColorPickerViewSelectStyle = .check
-    
-    func resetSelection() {
-        _indexOfSelectedColor = nil
-        collectionView.reloadData()
-    }
-    
+        
     // MARK: - Private properties
     
     fileprivate var _indexOfSelectedColor: Int?
@@ -150,6 +145,11 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
     }
     
     // MARK: - Public Methods
+    
+    public func resetSelection() {
+        _indexOfSelectedColor = nil
+        collectionView.reloadData()
+    }
     
     public func selectColor(at index: Int, animated: Bool) {
         self._selectColor(at: IndexPath(row: index, section: 0),
