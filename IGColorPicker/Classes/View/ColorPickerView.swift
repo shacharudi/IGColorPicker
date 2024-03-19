@@ -76,6 +76,11 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
     /// Style applied when a color is selected
     open var selectionStyle: ColorPickerViewSelectStyle = .check
     
+    func resetSelection() {
+        _indexOfSelectedColor = nil
+        collectionView.reloadData()
+    }
+    
     // MARK: - Private properties
     
     fileprivate var _indexOfSelectedColor: Int?
